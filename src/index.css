@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #b08a3e;
+  --color-gold-deep: #8a6424;
+  --color-gold-soft: #e6c98a;
+  --color-gold-pale: #f4e6c4;
+  --color-ink: #4a3418;
+  --color-cocoa: #2e2115;
+  --color-ivory: #fffcf3;
+  --font-display: "Cormorant Garamond", "Abhaya Libre", serif;
+
+  --font-serif: "Abhaya Libre", serif;
+  --font-script: "Abhaya Libre", cursive;
+  --font-sans: "Abhaya Libre", sans-serif;
+  --font-cinzel: "Abhaya Libre", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-playball: "Abhaya Libre", cursive;
+  --font-sinhala: "Abhaya Libre";
+
+  --color-sage: #87937a;
+  /* Soft Sunset Red */
+  --color-paper: #faf4e6;
+
+  --color-theme-50: #fff5f2;
+  --color-theme-100: #ffe8e1;
+  --color-theme-200: #ffd1c1;
+  --color-theme-300: #F2AE66;
+  /* User Golden Orange */
+  --color-theme-400: #fd9b7e;
+  --color-theme-500: #FD8A6B;
+  /* User Coral */
+  --color-theme-600: #ea5a7a;
+  --color-theme-700: #C30E59;
+  /* User Deep Magenta */
+  --color-theme-800: #a10b4a;
+  --color-theme-900: #7d0939;
+}
+
+:root {
+  background-color: var(--color-paper);
+  color: #4D412F;
+  font-family: var(--font-sinhala);
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Cormorant Garamond", "Abhaya Libre", Georgia, serif !important;
+  font-weight: 500;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.script {
+  font-family: var(--font-script);
+}
+
+
+.clip-path-envelope {
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.clip-path-envelope-bottom {
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+.website-shell {
+  background-color: var(--color-paper);
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(176, 138, 62, 0.5);
+  border-radius: 10px;
+}
+
+.font-numeric {
+  font-family: "Cormorant Garamond", "Abhaya Libre", serif !important;
+  font-variant-numeric: lining-nums;
+  font-weight: 500;
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", "Abhaya Libre", serif !important;
+}
+
+/* Gold foil text */
+.text-foil,
+.text-foil-light {
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: foil-shine 9s linear infinite;
+}
+
+.text-foil {
+  background-image: linear-gradient(100deg, #7a5619 0%, #b08a3e 20%, #e9cf8f 38%, #a07a32 52%, #7a5619 70%, #b08a3e 86%, #7a5619 100%);
+}
+
+.text-foil-light {
+  background-image: linear-gradient(100deg, #c9a24d 0%, #f6e3ad 22%, #fff6dc 36%, #d6b064 52%, #c9a24d 70%, #f6e3ad 86%, #c9a24d 100%);
+}
+
+@keyframes foil-shine {
+  to {
+    background-position: 220% center;
+  }
+}
+
+/* Image art tinted gold: the PNG is used as a mask, colour comes from currentColor */
+.gold-art {
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0) 25%, rgba(255, 244, 214, 0.6) 48%, rgba(255, 255, 255, 0) 70%),
+    currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Hero lotus frame: fills the first screen on phones (cover crop, max 12% taller than the art),
+   centred portrait panel with softly faded sides on larger screens */
+.hero-bg {
+  --hero-w: 100vw;
+  --hero-h: calc(var(--hero-w) * 1671 / 941);
+  width: var(--hero-w);
+  height: clamp(var(--hero-h), 100dvh, calc(var(--hero-h) * 1.12));
+}
+
+@media (min-width: 768px) {
+  .hero-bg {
+    width: min(100vw, calc(100dvh * 941 / 1671), 640px);
+    height: auto;
+    aspect-ratio: 941 / 1671;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+}
+
+.gold-hairline {
+  background: linear-gradient(90deg, transparent, var(--color-gold) 50%, transparent);
+}
+
+.paper-card {
+  background:
+    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.95), transparent 70%),
+    linear-gradient(180deg, #fffdf7 0%, #fdf8ec 100%);
+}
+
+/* Ivory touch: soft ivory light washed over the paper background */
+.website-shell {
+  background:
+    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(255, 253, 245, 0.9), transparent 70%),
+    radial-gradient(ellipse 70% 30% at 0% 45%, rgba(255, 252, 240, 0.75), transparent 70%),
+    radial-gradient(ellipse 70% 30% at 100% 75%, rgba(255, 252, 240, 0.75), transparent 70%),
+    linear-gradient(180deg, #fbf6ea 0%, #fffcf3 35%, #faf4e6 65%, #fffcf3 100%);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #8a6424 0%, #b08a3e 45%, #c9a24d 60%, #8a6424 100%);
+  background-size: 200% 200%;
+  transition: background-position 0.8s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-gold:hover {
+  background-position: 100% 0;
+  box-shadow: 0 14px 30px -12px rgba(138, 100, 36, 0.6);
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 120s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-foil,
+  .text-foil-light,
+  .animate-spin-slow {
+    animation: none;
+  }
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* Calligraphic script for the couple's names and headings */
+.font-script {
+  font-family: "Great Vibes", "Cormorant Garamond", cursive !important;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
