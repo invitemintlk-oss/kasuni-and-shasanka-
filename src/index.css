@@ -243,6 +243,14 @@ textarea::placeholder {
   text-transform: none;
 }
 
+/* background-clip:text only paints inside the box, so Great Vibes swashes
+   (S tails, R loops, descenders) get cropped. Give the glyphs room to paint. */
+.font-script.text-foil,
+.font-script.text-foil-light {
+  padding: 0.18em 0.45em 0.32em !important;
+  overflow: visible;
+}
+
 .mask-gradient {
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
