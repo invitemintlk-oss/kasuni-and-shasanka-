@@ -15,7 +15,7 @@ const PRE_IMAGES = [
   { src: "/images/gallery/2.jpg", pos: "50% 40%" },
 ];
 
-const FEATURE_PHOTO = "/images/gallery/2.jpg";
+const FEATURE_PHOTO = "/images/k-story.jpg";
 
 const EASE_SILK = [0.16, 1, 0.3, 1] as const;
 const HERO_FRAME = "/images/hero-lotus-frame.jpg";
@@ -720,7 +720,7 @@ export default function WeddingInvitation() {
                         loading="lazy"
                         decoding="async"
                         draggable={false}
-                        className="w-full h-full object-cover object-[50%_35%] rounded-t-full"
+                        className="w-full h-full object-cover object-[52%_60%] rounded-t-full"
                       />
                     </div>
                     <LotusMark className="mt-5 w-12 h-8 text-gold" />
